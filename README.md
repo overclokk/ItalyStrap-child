@@ -1,4 +1,4 @@
-# [ItalyStrap Theme](http://www.overclokk.net/italystrap-wordpress-starter-theme)
+# [ItalyStrap-child Theme](http://www.overclokk.net/italystrap-wordpress-starter-theme)
 
 ItalyStrap-child is a Wordpress child theme for [ItalyStrap starter theme](http://www.overclokk.net/italystrap-wordpress-starter-theme) based on [HTML5 Boilerplate](http://html5boilerplate.com/), [Bootstrap](http://getbootstrap.com/), [Schema.org](http://schema.org/), [Open Graph](https://developers.facebook.com/docs/opengraph/), [Twitter cards](https://dev.twitter.com/docs/cards)
 
