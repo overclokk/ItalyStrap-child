@@ -1,11 +1,28 @@
 module.exports = function(grunt) {
     'use strict';
     grunt.initConfig({
-
+        pkg: grunt.file.readJSON('package.json'),
         uglify: {
             dist: {
                 files: {
-                    'js/bootstrap.min.js': [
+                    'js/home.min.js': [
+                        '../ItalyStrap/js/src/bootstrapJS/transition.js',
+                        // '../ItalyStrap/js/src/bootstrapJS/alert.js',
+                        // '../ItalyStrap/js/src/bootstrapJS/button.js',
+                        '../ItalyStrap/js/src/bootstrapJS/carousel.js',
+                        '../ItalyStrap/js/src/bootstrapJS/collapse.js',
+                        '../ItalyStrap/js/src/bootstrapJS/dropdown.js',
+                        // '../ItalyStrap/js/src/bootstrapJS/modal.js',
+                        // '../ItalyStrap/js/src/bootstrapJS/tooltip.js',
+                        // '../ItalyStrap/js/src/bootstrapJS/popover.js',
+                        // '../ItalyStrap/js/src/bootstrapJS/scrollspy.js',
+                        // '../ItalyStrap/js/src/bootstrapJS/tab.js',
+                        '../ItalyStrap/js/src/bootstrapJS/affix.js',
+                        'js/src/all.js',
+                        'js/src/home.js', // <- Modify this
+                    ],
+
+                    'js/singular.min.js': [
                         '../ItalyStrap/js/src/bootstrapJS/transition.js',
                         '../ItalyStrap/js/src/bootstrapJS/alert.js',
                         '../ItalyStrap/js/src/bootstrapJS/button.js',
@@ -18,21 +35,61 @@ module.exports = function(grunt) {
                         '../ItalyStrap/js/src/bootstrapJS/scrollspy.js',
                         '../ItalyStrap/js/src/bootstrapJS/tab.js',
                         '../ItalyStrap/js/src/bootstrapJS/affix.js',
-                    ]
+                        'js/src/all.js',
+                        'js/src/singular.js' // <- Modify this
+                    ],
+
+                    'js/archive.min.js': [
+                        '../ItalyStrap/js/src/bootstrapJS/transition.js',
+                        '../ItalyStrap/js/src/bootstrapJS/alert.js',
+                        '../ItalyStrap/js/src/bootstrapJS/button.js',
+                        '../ItalyStrap/js/src/bootstrapJS/carousel.js',
+                        '../ItalyStrap/js/src/bootstrapJS/collapse.js',
+                        '../ItalyStrap/js/src/bootstrapJS/dropdown.js',
+                        '../ItalyStrap/js/src/bootstrapJS/modal.js',
+                        '../ItalyStrap/js/src/bootstrapJS/tooltip.js',
+                        '../ItalyStrap/js/src/bootstrapJS/popover.js',
+                        '../ItalyStrap/js/src/bootstrapJS/scrollspy.js',
+                        '../ItalyStrap/js/src/bootstrapJS/tab.js',
+                        '../ItalyStrap/js/src/bootstrapJS/affix.js',
+                        'js/src/all.js',
+                        'js/src/archive.js' // <- Modify this
+                    ],
+
+                    'js/custom.min.js': [
+                        '../ItalyStrap/js/src/bootstrapJS/transition.js',
+                        '../ItalyStrap/js/src/bootstrapJS/alert.js',
+                        '../ItalyStrap/js/src/bootstrapJS/button.js',
+                        '../ItalyStrap/js/src/bootstrapJS/carousel.js',
+                        '../ItalyStrap/js/src/bootstrapJS/collapse.js',
+                        '../ItalyStrap/js/src/bootstrapJS/dropdown.js',
+                        '../ItalyStrap/js/src/bootstrapJS/modal.js',
+                        '../ItalyStrap/js/src/bootstrapJS/tooltip.js',
+                        '../ItalyStrap/js/src/bootstrapJS/popover.js',
+                        '../ItalyStrap/js/src/bootstrapJS/scrollspy.js',
+                        '../ItalyStrap/js/src/bootstrapJS/tab.js',
+                        '../ItalyStrap/js/src/bootstrapJS/affix.js',
+                        'js/src/all.js',
+                        'js/src/custom.js' // <- Modify this
+                    ],                   
                 }
             }
         },
 
         jshint: {
-            all: ['js/*.js', '!js/bootstrap.min.js', '!js/jquery.min.js']
+            all: [
+                'js/*.js',
+                // '!js/bootstrap.min.js',
+                // '!js/jquery.min.js'
+                ]
         },
 
         compass:{ // https://github.com/gruntjs/grunt-contrib-compass
             src:{
                 options: {
-                    // sassDir:['../ItalyStrap/css/src/sass'],
-                    // cssDir:['css'],
-                    // outputStyle: 'compressed'
+                    sassDir:['css/src/sass'],
+                    cssDir:['css/src/'],
+                    outputStyle: 'compressed'
                 }
             },
         },
@@ -50,6 +107,14 @@ module.exports = function(grunt) {
             }
         },
 
+        // cssmin: {
+        //     combine: {
+        //       files: {
+        //         'css/custom.min.css': ['css/custom.css']
+        //       }
+        //     }
+        // },
+
         csslint: { // http://astainforth.com/blogs/grunt-part-2
             files: ['css/*.css', '!css/bootstrap.min.css',],
             options: {
@@ -59,16 +124,16 @@ module.exports = function(grunt) {
         },
 
         watch: { // https://github.com/gruntjs/grunt-contrib-watch
-            css: {
-                files: ['**/*.{scss,sass}'],
-                tasks: ['testcssbuild'],
+            compass: {
+                files: ['css/src/sass/*.{scss,sass}'],
+                tasks: ['testcompassbuild'],
             },
             js: {
                 files: ['src/js/*.js'],
                 tasks: ['testjsbuild'],
             },
             options: {
-                livereload: 9000,
+                livereload: true,
             },
         },
 
@@ -82,6 +147,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('testcssbuild', ['less', 'compass', 'csslint']);
+    grunt.registerTask('testcompassbuild', ['compass','cssmin', 'csslint']);
     grunt.registerTask('testjsbuild', ['jshint', 'uglify']);
 
     grunt.registerTask('test', ['jshint', 'csslint']);
