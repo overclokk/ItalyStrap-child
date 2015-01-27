@@ -4,7 +4,7 @@
   "description": "Child theme for ItalyStrap, useful for customize parent theme",
   "author": "Enea Overclokk",
   "homepage": "http://www.overclokk.net/italystrap",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.4.0",
