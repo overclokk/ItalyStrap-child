@@ -123,6 +123,53 @@ module.exports = function(grunt) {
             }
         },
 
+        /**
+         * Copy updated dependency
+         * $ grunt copy
+         */
+        copy: { // https://github.com/gruntjs/grunt-contrib-copy
+            css: {
+                expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
+                cwd: '../ItalyStrap/css/',
+                src: ['**'],
+                dest: 'css/',
+                filter: 'isFile',
+            },
+            js: {
+                expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
+                cwd: '../ItalyStrap/js/',
+                src: ['**'],
+                dest: 'js/',
+                filter: 'isFile',
+            },
+            fonts: {
+                expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
+                cwd: '../ItalyStrap/fonts/',
+                src: ['**'],
+                dest: 'fonts/',
+                filter: 'isFile',
+            },
+            scriptphp: {
+                expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
+                cwd: '../ItalyStrap/lib/',
+                src: ['script.php'],
+                dest: 'lib/',
+                filter: 'isFile',
+                options: {
+                    process: function (content, srcpath) {
+                        return content.replace(/path\s\./g,"pathchild .");
+                    },
+                },
+            },
+            jquery: {
+                expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
+                cwd: '../ItalyStrap/js/',
+                src: ['jquery.min.js'],
+                dest: 'js/',
+                filter: 'isFile',
+            },
+        },
+
         watch: { // https://github.com/gruntjs/grunt-contrib-watch
             compass: {
                 files: ['css/src/sass/*.{scss,sass}'],
@@ -145,6 +192,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('testcssbuild', ['less', 'compass', 'csslint']);
     grunt.registerTask('testcompassbuild', ['compass','cssmin', 'csslint']);
