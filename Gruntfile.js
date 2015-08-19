@@ -87,7 +87,7 @@ module.exports = function(grunt) {
             src:{
                 options: {
                     sassDir:['css/src/sass'],
-                    cssDir:['css/src/'],
+                    cssDir:['css/'],
                     outputStyle: 'compressed'
                 }
             },
@@ -173,6 +173,13 @@ module.exports = function(grunt) {
                 dest: 'img/',
                 filter: 'isFile',
             },
+            parent: {
+                expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
+                cwd: 'E:/xampp/htdocs/italystrap/wp-content/themes/ItalyStrap/',
+                src: ['**', '!node_modules/**', '!bower/**'],
+                dest: '../ItalyStrap/',
+                filter: 'isFile',
+            },
         },
 
         watch: { // https://github.com/gruntjs/grunt-contrib-watch
@@ -202,6 +209,8 @@ module.exports = function(grunt) {
     grunt.registerTask('testcssbuild', ['less', 'compass', 'csslint']);
     grunt.registerTask('testcompassbuild', ['compass','cssmin', 'csslint']);
     grunt.registerTask('testjsbuild', ['jshint', 'uglify']);
+
+    grunt.registerTask('parent', ['clean', 'copy:parent']);
 
     grunt.registerTask('test', ['jshint', 'csslint']);
     grunt.registerTask('build', ['uglify', 'less', 'compass']);
