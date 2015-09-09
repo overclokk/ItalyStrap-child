@@ -182,6 +182,40 @@ module.exports = function(grunt) {
             },
         },
 
+        clean: { // https://github.com/gruntjs/grunt-contrib-clean
+            options: { force: true },
+            clean: ['../ItalyStrap']
+
+        },
+
+        compress: { // https://github.com/gruntjs/grunt-contrib-compress
+            main: {
+                options: {
+                    archive: '../<%= pkg.name %> <%= pkg.version %>.zip' // Create zip file in theme directory
+                },
+                files: [
+                    {
+                        src: [
+                            '**' ,
+                            '!.git/**',
+                            '!.sass-cache/**',
+                            '!bower/**',
+                            '!node_modules/**',
+                            '!.gitattributes',
+                            '!.gitignore',
+                            '!.csslintrc',
+                            '!.jshintrc',
+                            // '!bower.json',
+                            '!Gruntfile.js',
+                            '!package.json',
+                            '!*.zip'], // What should be included in the zip
+                        dest: '<%= pkg.name %>/',        // Where the zipfile should go
+                        filter: 'isFile',
+                    },
+                ]
+            }
+        },
+
         watch: { // https://github.com/gruntjs/grunt-contrib-watch
             compass: {
                 files: ['css/src/sass/*.{scss,sass}'],
@@ -205,6 +239,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-compress');
 
     grunt.registerTask('testcssbuild', ['less', 'compass', 'csslint']);
     grunt.registerTask('testcompassbuild', ['compass','cssmin', 'csslint']);
