@@ -15,16 +15,6 @@ get_header(); ?>
 					<?php
 					do_action( 'content_col_open' );
 
-					if ( class_exists('ItalyStrapBreadcrumbs') ) {
-
-						$defaults = array(
-							'home'    =>  '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>'
-							);
-
-						new ItalyStrapBreadcrumbs( $defaults );
-
-					}
-
 					$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 					$blog = new WP_Query(
 										array( 

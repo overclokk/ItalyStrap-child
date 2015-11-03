@@ -70,7 +70,7 @@ endif;
 ?>
 
 <!-- Main Content -->
-<section id="main">
+<main id="main" role="main">
 	<div class="container">
 		<h3><?php _e( 'Last article', 'ItalyStrap' ); ?></h3>
 		<section class="row">
@@ -78,14 +78,11 @@ endif;
 				/**
 				 * Example code: If there is a stycky post the loop show only 3 articles
 				 */
-				$sticky = get_option( 'sticky_posts' );
+				// $sticky = get_option( 'sticky_posts' );
 
-				if ( isset( $sticky[0] ) )
-					$postperpage = 3;
-				else
-					$postperpage = 4;
+				// $postperpage = ( isset( $sticky[0] ) ) ? 3 : 4;
 				
-				query_posts( "posts_per_page=$postperpage" );
+				// query_posts( "posts_per_page=$postperpage" );
 				
 				if ( have_posts() ) : while ( have_posts() ) : the_post();
 
@@ -93,7 +90,7 @@ endif;
 
 				endwhile;
 
-					// bootstrap_pagination();
+					bootstrap_pagination();
 
 				else :
 
@@ -107,5 +104,5 @@ endif;
 		</section><!-- / .row -->
 		<hr>
     </div><!-- / .container -->
-</section><!-- / #main -->
+</main><!-- / #main -->
 <?php get_footer(); ?>

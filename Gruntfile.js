@@ -155,7 +155,7 @@ module.exports = function(grunt) {
                 filter: 'isFile',
                 options: {
                     process: function (content, srcpath) {
-                        return content.replace(/path\s\./g,"pathchild .");
+                        return content.replace(/PARENT_PATH\s\./g,"CHILD_PATH .");
                     },
                 },
             },
@@ -247,6 +247,16 @@ module.exports = function(grunt) {
     grunt.registerTask('testjsbuild', ['jshint', 'uglify']);
 
     grunt.registerTask('parent', ['clean', 'copy:parent']);
+
+    grunt.registerTask('copysrc', [
+                                'copy:css',
+                                'copy:js',
+                                'copy:fonts',
+                                'copy:scriptphp',
+                                'copy:img'
+                                ]);
+
+    grunt.registerTask('child-init', ['parent', 'copysrc']);
 
     grunt.registerTask('test', ['jshint', 'csslint']);
     grunt.registerTask('build', ['uglify', 'less', 'compass']);

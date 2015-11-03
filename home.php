@@ -4,7 +4,7 @@
  */
 get_header(); ?>
     <!-- Main Content -->
-	<section id="index">
+	<main id="index" role="main">
         <div class="container">
             <div class="row">
 				<div class="col-md-8" itemscope itemtype="http://schema.org/CollectionPage">
@@ -42,6 +42,6 @@ get_header(); ?>
 				<?php get_sidebar(); ?> 
 			</div><!-- / .row -->
 		</div><!-- / .container -->
-	</section><!-- / #index -->
+	</main><!-- / #index -->
 
 <?php get_footer(); ?>
