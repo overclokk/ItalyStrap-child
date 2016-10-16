@@ -21,25 +21,6 @@
  * For more information on hooks, actions, and filters,
  * @link https://codex.wordpress.org/Plugin_API
  *
- * @package ItalyStrap\Child-Theme
+ * @package ItalyStrap
  * @since 1.0.0
  */
-
-/**
- * Define child path directory if is active child theme
- */
-define( 'ITALYSTRAP_CHILD_PATH', get_stylesheet_directory_uri() );
-$pathchild = ITALYSTRAP_CHILD_PATH;
-
-
-/**
- * Custom Post Type.
- * @todo da spostare in un plugin
- */
-require locate_template( '/lib/custom-post-type.php' );
-
-/**
- * Custom Meta Box.
- * @todo Implementare CMB2
- */
-require locate_template( '/lib/custom_meta_box.php' );
