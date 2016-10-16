@@ -2,14 +2,28 @@
 
 ItalyStrap-child is a Wordpress child theme for [ItalyStrap starter theme](http://www.overclokk.net/italystrap-wordpress-starter-theme) based on [HTML5 Boilerplate](http://html5boilerplate.com/), [Bootstrap](http://getbootstrap.com/), [Schema.org](http://schema.org/), [Open Graph](https://developers.facebook.com/docs/opengraph/), [Twitter cards](https://dev.twitter.com/docs/cards)
 
+You can use this like a starter child theme to build awesome WordPress web site
+
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ## Installation
 
-Require [ItalyStrap](https://github.com/overclokk/ItalyStrap)
-Place ItalyStrap-child folder in the themes (/wp-content/themes/) directory and activate it via Admin - Appearance - Themes
+Always Download the latest releases [ItalyStrap](https://github.com/overclokk/ItalyStrap/releases)
+
+Make shure the directory name of the parent theme it's `italystrap` in lowercase
+
+Place ItalyStrap-child folder in the themes (/wp-content/themes/) directory
+
+You can rename the child theme directory
+
+Activate it via Admin - Appearance - Themes
+
+And build an awesome web site :-)
+
 
 ## Configuration and Documentation
+
+[Documentation in beta version](http://docs.italystrap.com/)
 
 ### English description coming soon :-)
 
