@@ -1,0 +1,35 @@
+{
+  "name": "ItalyStrap",
+  "version": "4.0.0-beta",
+  "homepage": "https://github.com/overclokk/ItalyStrap",
+  "authors": [
+    "Enea Overclokk <info@overclokk.net>"
+  ],
+  "description": "A WordPress starter theme with Schema.org, Bootstrap3, OpenGraph, Twitter cards, SEO Friedly, WPO Friendly and many more",
+  "keywords": [
+    "wordpress",
+    "theme",
+    "schema.org",
+    "seo",
+    "bootstrap",
+    "twitter-cards",
+    "opengraph",
+    "mobile"
+  ],
+  "license": "GPLv2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap-sass": "latest",
+    "font-awesome": "latest",
+    "jquery": "latest",
+    "susy": "~2.2.12",
+    "breakpoint-sass": "~2.7.0",
+    "bourbon": "~4.2.7"
+  }
+}
