@@ -34,6 +34,11 @@ module.exports = function(grunt) {
 	'use strict';
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+
+        exec: { // https://github.com/jharding/grunt-exec
+            bower: 'bower install'
+        },
+
 		uglify: {
 			dist: {
 				files: {
@@ -177,20 +182,6 @@ module.exports = function(grunt) {
 		 * $ grunt copy
 		 */
 		copy: { // https://github.com/gruntjs/grunt-contrib-copy
-			css: {
-				expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
-				cwd: '../ItalyStrap/css/',
-				src: ['**'],
-				dest: 'css/',
-				filter: 'isFile',
-			},
-			js: {
-				expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
-				cwd: '../ItalyStrap/js/',
-				src: ['**'],
-				dest: 'js/',
-				filter: 'isFile',
-			},
 			bootstrapfonts: {
 				expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
 				cwd: bootstrap_fonts_path,
@@ -259,7 +250,7 @@ module.exports = function(grunt) {
 
 		watch: { // https://github.com/gruntjs/grunt-contrib-watch
 			compass: {
-				files: ['css/src/sass/*.{scss,sass}'],
+				files: ['sass/*.{scss,sass}'],
 				tasks: ['testcompassbuild'],
 			},
 			js: {
@@ -282,34 +273,41 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-exec');
 
-	grunt.registerTask('testcssbuild', ['less', 'compass', 'csslint']);
-	grunt.registerTask('testcompassbuild', ['compass','cssmin', 'csslint']);
-	grunt.registerTask('testjsbuild', ['jshint', 'uglify']);
-
-	grunt.registerTask('parent', ['clean', 'copy:parent']);
-
-	grunt.registerTask('copysrc', [
-								'copy:css',
-								'copy:js',
-								'copy:fonts',
-								'copy:scriptphp',
-								'copy:img'
-								]);
-
-	grunt.registerTask('child-init', ['parent', 'copysrc']);
+	grunt.registerTask( 'testcssbuild', ['compass', 'csslint'] );
+	grunt.registerTask( 'testcompassbuild', ['compass','cssmin', 'csslint'] );
+	grunt.registerTask( 'testjsbuild', ['jshint', 'uglify'] );
 
 	grunt.registerTask('test', ['jshint', 'csslint']);
-	grunt.registerTask('build', ['uglify', 'less', 'compass']);
 
-	grunt.event.on('watch', function(action, filepath) {
-		grunt.log.writeln(filepath + ' has ' + action);
+    grunt.registerTask( 'build', [
+        'exec:bower',
+        'copy:bootstrapfonts',
+        'copy:jquery',
+        'compass',
+        'uglify'
+        ]
+    );
+
+    /**
+     * This task is only for my personal use.
+     */
+    grunt.registerTask( 'parent', [
+        'clean',
+        'copy:parent_theme',
+        'copy:parent_plugins',
+        ]
+    );
+
+	grunt.event.on('watch', function( action, filepath ) {
+		grunt.log.writeln( filepath + ' has ' + action );
 	});
 
 	/**
 	 * http://gruntjs.com/api/grunt.log
 	 */
-    grunt.registerTask('debug', 'Debug mode.', function( arg ) {
+    grunt.registerTask( 'debug', 'Debug mode.', function( arg ) {
         // var msg = 'Doing something...';
         // var ABSPATH = path.resolve('../../../' );
         // var theme_name = path.basename( path.resolve() );
