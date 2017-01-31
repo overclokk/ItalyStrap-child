@@ -1,7 +1,7 @@
 /**
  * Theme Name: Your-Theme-Name
  * Template: italystrap
- * Theme URI: http://www.overclokk.net/italystrap-wordpress-starter-theme
+ * Theme URI: http://italystrap.com
  * Author: Enea Overclokk
  * Author URI: http://www.overclokk.net
  * Description: Child Theme for ItalyStrap Theme Framework <a href="https://github.com/overclokk/ItalyStrap/graphs/contributors">Contribute on GitHub</a>
@@ -10,4 +10,8 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Tags:
  * Text Domain: Your-Theme-Name
+ */
+
+/**
+ * Leave this file empty, use css/custom.css for your style.
  */

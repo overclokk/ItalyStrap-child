@@ -1,22 +1,18 @@
 <?php
 /**
- * ItalyStrap theme child functions and definitions
+ * ItalyStrap child theme for bootstrapping your web app.
  *
  * Set up the Child Theme for ItalyStrap
- * This theme provides a new layout for ùItalyStrap with some helper functions,
- * which are used in the theme as custom template tags.
- * Others are attached to action and filter hooks in WordPress to change core functionality.
  *
- * When using this child theme you can override certain functions (those wrapped
- * in a function_exists() call) by defining them first in this file.
- * This file is included before the ItalyStrap theme's file,
- * so the child theme functions would be used.
+ * This theme is meant to provides a new layout for ItalyStrap Framework.
+ *
+ * Normally you can modify the parent core functionality with actions and filters hooks.
+ * Do it in a OOP design patern instead of procedural design pattern.
+ *
+ * Remember that this file is included before the ItalyStrap theme's file.
  *
  * @link https://codex.wordpress.org/Theme_Development
  * @link https://codex.wordpress.org/Child_Themes
- *
- * Functions that are not pluggable (not wrapped in function_exists()) are
- * instead attached to a filter or action hook.
  *
  * For more information on hooks, actions, and filters,
  * @link https://codex.wordpress.org/Plugin_API
@@ -24,3 +20,17 @@
  * @package ItalyStrap
  * @since 1.0.0
  */
+
+namespace Vendor;
+
+if ( ! defined( 'ABSPATH' ) or ! ABSPATH ) {
+	die();
+}
+
+/**
+ * Don't use this file to add your functionality, use the bootstrap.php instead
+ * because you can get a better file structure for your web app.
+ */
+require( STYLESHEETPATH . '/lib/bootstrap.php' );
+
+/* Stop, keep this file clean. */

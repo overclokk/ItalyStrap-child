@@ -1,3 +1,7 @@
+/**
+ * This is the falback file that will be loaded in case no specific file are founded.
+ */
+
 jQuery.noConflict()(function($){
 	"use strict";
 	$(document).ready(function() {
