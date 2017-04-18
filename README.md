@@ -14,9 +14,15 @@ Make shure the directory name of the parent theme it's `italystrap` in lowercase
 
 Place ItalyStrap-child folder in the themes (/wp-content/themes/) directory
 
-You can rename the child theme directory
+Rename the child theme directory, example "My_Theme"
 
-Activate it via Admin - Appearance - Themes
+Activate it via Admin -> Appearance -> Themes
+
+Via command line you can enter in the directory and type:
+
+npm install
+composer install
+bower install
 
 And build an awesome web site :-)
 

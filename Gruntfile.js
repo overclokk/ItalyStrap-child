@@ -216,8 +216,10 @@ module.exports = function(grunt) {
 
 		clean: { // https://github.com/gruntjs/grunt-contrib-clean
 			options: { force: true },
-			clean: ['../ItalyStrap']
-
+			clean: [
+				'../ItalyStrap',
+				'../../plugins/italystrap'
+			]
 		},
 
 		compress: { // https://github.com/gruntjs/grunt-contrib-compress
