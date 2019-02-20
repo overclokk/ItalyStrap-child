@@ -21,16 +21,38 @@
  * @since 1.0.0
  */
 
-namespace Vendor;
+namespace ItalyStrap;
 
 if ( ! defined( 'ABSPATH' ) or ! ABSPATH ) {
 	die();
 }
 
 /**
- * Don't use this file to add your functionality, use the bootstrap.php instead
- * because you can get a better file structure for your web app.
+ * ==========================================================
+ *
+ * Load the parent framework
+ *
+ * ==========================================================
  */
-require( STYLESHEETPATH . '/lib/bootstrap.php' );
+require_once get_template_directory() . '/lib/bootstrap.php';
+
+/**
+ * ==========================================================
+ *
+ * Now load the child
+ *
+ * ==========================================================
+ */
+require __DIR__ . '/src/bootstrap.php';
+
+/**
+ * ==========================================================
+ *
+ * Don't use this file to add your functionality,
+ * use the bootstrap.php instead because you can get
+ * a better file structure for your web app.
+ *
+ * ==========================================================
+ */
 
 /* Stop, keep this file clean. */

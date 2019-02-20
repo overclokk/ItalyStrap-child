@@ -1,17 +1,23 @@
 {
-    "name": "overclokk/italystrap",
-    "description": "Framework theme for WordPress",
+    "name": "italystrap/italystrap-child",
+    "description": "Child theme for the ItalyStrap Theme Framework",
+    "type": "wordpress-theme",
     "authors": [
         {
             "name": "overclokk",
             "email": "info@overclokk.net"
         }
     ],
-    "require": {},
+    "require": {
+      "php" : ">=5.4"
+    },
+    "require-dev": {
+      "lucatume/wp-browser": "~2.2"
+    },
 	"autoload": {
 		"classmap": [],
         "psr-4": {
-            "Vendor\\Core\\": "src/"
+            "Vendor\\": "src/"
         }
 	}
 }

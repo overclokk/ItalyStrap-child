@@ -14,19 +14,24 @@
 //     }
 // }
 .gallery {
-    display: flex;
-    flex-flow: row wrap;
-    .gallery-item {
-        padding: 0.5em;
-    }
-    .gallery-caption {
+	display: flex;
+	flex-flow: row wrap;
+	.gallery-item {
+		padding: 0.5em;
+	}
+	.gallery-caption {
 		color: $gray-light;
 		font-size: 0.85em;
-    }
-    .gallery-icon,
-    .gallery-caption {
-    	text-align: center;
-    }
+	}
+	.gallery-icon,
+	.gallery-caption {
+		text-align: center;
+	}
+	img {
+		height: auto;
+		width: 100%;
+		max-width: 100%;
+	}
 }
 
 @for $i from 1 through 9 {

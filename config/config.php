@@ -10,4 +10,6 @@
 
 namespace ItalyStrap\Config;
 
-return array();
+return [
+
+];

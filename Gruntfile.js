@@ -18,20 +18,49 @@ var bootstrap_js_path = bootstrap_path + 'javascripts/bootstrap/';
 var bootstrap_fonts_path = bootstrap_path + 'fonts/bootstrap/';
 
 var auth = {
-				host: 'ftp.overclokk.net',
+				host: 'ftp.your-host.tld',
 				port: 21,
 				authKey: 'key1'
 			};
 var sftp_auth = {
-				host: 'ftp.overclokk.net',
+				host: 'ftp.your-host.tld',
 				port: 22,
 				authKey: 'sftp'
 			};
 
 var parent_path = 'E:/xampp/htdocs/italystrap/wp-content/';
 
+var italystrap_theme = [
+	'**',
+	'!codecept',
+	'!.git/**',
+	'!.gitattributes',
+	'!.gitignore',
+	'!.sass-cache/**',
+	'!node_modules/**',
+	'!bower/**',
+	'!tests/**',
+	'!future-inclusions/**',
+	'!sass/**',
+	'!css/src/**',
+	'!js/src/**',
+	'!snippets.md',
+	'!bower.json',
+	'!Gruntfile.js',
+	'!package.json',
+	'!*.yml',
+	'!*.zip',
+	'!**/*.map',
+];
+
 module.exports = function(grunt) {
 	'use strict';
+
+	/**
+	 * https://www.npmjs.com/package/load-grunt-tasks
+	 */
+	require('load-grunt-tasks')(grunt);
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 
@@ -217,7 +246,7 @@ module.exports = function(grunt) {
 		clean: { // https://github.com/gruntjs/grunt-contrib-clean
 			options: { force: true },
 			clean: [
-				'../ItalyStrap',
+				'../italystrap',
 				'../../plugins/italystrap'
 			]
 		},
@@ -229,20 +258,7 @@ module.exports = function(grunt) {
 				},
 				files: [
 					{
-						src: [
-							'**' ,
-							'!.git/**',
-							'!.sass-cache/**',
-							'!bower/**',
-							'!node_modules/**',
-							'!.gitattributes',
-							'!.gitignore',
-							'!.csslintrc',
-							'!.jshintrc',
-							// '!bower.json',
-							'!Gruntfile.js',
-							'!package.json',
-							'!*.zip'], // What should be included in the zip
+						src: italystrap_theme, // What should be included in the zip
 						dest: '<%= pkg.name %>/',        // Where the zipfile should go
 						filter: 'isFile',
 					},
