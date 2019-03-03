@@ -1,36 +1,39 @@
-var mozjpeg = require( 'imagemin-mozjpeg' );
-var path = require( 'path' );
+const mozjpeg = require( 'imagemin-mozjpeg' );
+const path = require('path');
 
 /**
+ * ============================================================
+ *
  * https://www.tutorialspoint.com/nodejs/nodejs_path_module.htm
+ *
+ * ============================================================
  */
-var ABSPATH          = path.resolve( '../../../' );
-var WP_CONTENT       = ABSPATH + path.sep + 'wp-content';
-var WP_PLUGIN_PATH   = WP_CONTENT + path.sep + 'plugins' + path.sep;
-var WPMU_PLUGIN_PATH = WP_CONTENT + path.sep + 'mu-plugins' + path.sep;
-var WP_THEME_PATH    = WP_CONTENT + path.sep + 'themes' + path.sep;
-var TEMPLATEPATH     = WP_THEME_PATH + 'italystrap' + path.sep;
-var STYLESHEETPATH   = WP_THEME_PATH + path.basename( path.resolve() ) + path.sep;
+const ABSPATH          = path.resolve( '../../../' );
+const WP_CONTENT       = ABSPATH + path.sep + 'wp-content';
+const WP_PLUGIN_PATH   = WP_CONTENT + path.sep + 'plugins' + path.sep;
+const WPMU_PLUGIN_PATH = WP_CONTENT + path.sep + 'mu-plugins' + path.sep;
+const WP_THEME_PATH    = WP_CONTENT + path.sep + 'themes' + path.sep;
+const TEMPLATEPATH     = WP_THEME_PATH + 'italystrap' + path.sep;
+const STYLESHEETPATH   = WP_THEME_PATH + path.basename( path.resolve() ) + path.sep;
 
-var bower_path = 'bower_components/';
-var bootstrap_path = bower_path + 'bootstrap-sass/assets/';
-var bootstrap_js_path = bootstrap_path + 'javascripts/bootstrap/';
-var bootstrap_fonts_path = bootstrap_path + 'fonts/bootstrap/';
+const BOWER_PATH = 'bower_components/';
+const BOOTSTRAP_PATH = BOWER_PATH + 'bootstrap/';
+const BOOTSTRAP_JS_PATH = BOOTSTRAP_PATH + 'js/dist/';
 
-var auth = {
+const auth = {
 				host: 'ftp.your-host.tld',
 				port: 21,
 				authKey: 'key1'
 			};
-var sftp_auth = {
+const sftp_auth = {
 				host: 'ftp.your-host.tld',
 				port: 22,
 				authKey: 'sftp'
 			};
 
-var parent_path = 'E:/xampp/htdocs/italystrap/wp-content/';
+const parent_path = 'E:/xampp/htdocs/italystrap/wp-content/';
 
-var italystrap_theme = [
+const italystrap_theme = [
 	'**',
 	'!codecept',
 	'!.git/**',
@@ -71,73 +74,21 @@ module.exports = function(grunt) {
 		uglify: {
 			dist: {
 				files: {
-					'js/home.min.js': [
-						bootstrap_js_path + '/transition.js',
-						// bootstrap_js_path + '/alert.js',
-						// bootstrap_js_path + '/button.js',
-						bootstrap_js_path + '/carousel.js',
-						bootstrap_js_path + '/collapse.js',
-						bootstrap_js_path + '/dropdown.js',
-						// bootstrap_js_path + '/modal.js',
-						// bootstrap_js_path + '/tooltip.js',
-						// bootstrap_js_path + '/popover.js',
-						// bootstrap_js_path + '/scrollspy.js',
-						// bootstrap_js_path + '/tab.js',
-						bootstrap_js_path + '/affix.js',
-						'js/src/all.js',
-						'js/src/home.js', // <- Modify this
-					],
-
-					'js/singular.min.js': [
-						bootstrap_js_path + '/transition.js',
-						bootstrap_js_path + '/alert.js',
-						bootstrap_js_path + '/button.js',
-						bootstrap_js_path + '/carousel.js',
-						bootstrap_js_path + '/collapse.js',
-						bootstrap_js_path + '/dropdown.js',
-						bootstrap_js_path + '/modal.js',
-						bootstrap_js_path + '/tooltip.js',
-						bootstrap_js_path + '/popover.js',
-						bootstrap_js_path + '/scrollspy.js',
-						bootstrap_js_path + '/tab.js',
-						bootstrap_js_path + '/affix.js',
-						'js/src/all.js',
-						'js/src/singular.js' // <- Modify this
-					],
-
-					'js/archive.min.js': [
-						bootstrap_js_path + '/transition.js',
-						bootstrap_js_path + '/alert.js',
-						bootstrap_js_path + '/button.js',
-						bootstrap_js_path + '/carousel.js',
-						bootstrap_js_path + '/collapse.js',
-						bootstrap_js_path + '/dropdown.js',
-						bootstrap_js_path + '/modal.js',
-						bootstrap_js_path + '/tooltip.js',
-						bootstrap_js_path + '/popover.js',
-						bootstrap_js_path + '/scrollspy.js',
-						bootstrap_js_path + '/tab.js',
-						bootstrap_js_path + '/affix.js',
-						'js/src/all.js',
-						'js/src/archive.js' // <- Modify this
-					],
-
 					'js/custom.min.js': [
-						bootstrap_js_path + '/transition.js',
-						bootstrap_js_path + '/alert.js',
-						bootstrap_js_path + '/button.js',
-						bootstrap_js_path + '/carousel.js',
-						bootstrap_js_path + '/collapse.js',
-						bootstrap_js_path + '/dropdown.js',
-						bootstrap_js_path + '/modal.js',
-						bootstrap_js_path + '/tooltip.js',
-						bootstrap_js_path + '/popover.js',
-						bootstrap_js_path + '/scrollspy.js',
-						bootstrap_js_path + '/tab.js',
-						bootstrap_js_path + '/affix.js',
-						'js/src/all.js',
+						// bower_path + '/tether/dist/js/tether.js',
+						BOOTSTRAP_JS_PATH + '/util.js',
+						// BOOTSTRAP_JS_PATH + '/alert.js',
+						// BOOTSTRAP_JS_PATH + '/button.js',
+						BOOTSTRAP_JS_PATH + '/carousel.js',
+						BOOTSTRAP_JS_PATH + '/collapse.js',
+						BOOTSTRAP_JS_PATH + '/dropdown.js',
+						BOOTSTRAP_JS_PATH + '/modal.js',
+						// BOOTSTRAP_JS_PATH + '/scrollspy.js',
+						BOOTSTRAP_JS_PATH + '/tab.js',
+						// BOOTSTRAP_JS_PATH + '/tooltip.js',
+						// BOOTSTRAP_JS_PATH + '/popover.js',
 						'js/src/custom.js' // <- Modify this
-					],                   
+					],
 				}
 			}
 		},
@@ -150,21 +101,12 @@ module.exports = function(grunt) {
 		},
 
 		compass:{ // https://github.com/gruntjs/grunt-contrib-compass
-			dev:{
-				options: {
-					sassDir:['sass'],
-					cssDir:['css/src'],
-					environment: 'development',
-					// sourcemap: true,
-					importPath: bootstrap_path + 'stylesheets'
-				}
-			},
 			dist:{
 				options: {
 					sassDir:['sass'],
 					cssDir:['css'],
 					outputStyle: 'compressed',
-					importPath: bootstrap_path + 'stylesheets',
+					importPath: BOOTSTRAP_PATH,
 					// specify:[
 					// '*/**',
 					// '!woocommerce/imported'
@@ -173,36 +115,23 @@ module.exports = function(grunt) {
 			}
 		},
 
-		/**
-		 * LESS IS DEPRECATED, USE COMPASS
-		 *
-		 * @type {Object}
-		 */
-		less: { // https://github.com/gruntjs/grunt-contrib-less
-			development: {
-				options: {
-					compress: true,
-					yuicompress: true,
-					optimization: 2
-				},
-				files: {
-					'css/bootstrap.min.css': ['css/src/less/bootstrap.less'],
-				  }
-			}
-		},
-
-		// cssmin: {
-		//     combine: {
-		//       files: {
-		//         'css/custom.min.css': ['css/custom.css']
-		//       }
-		//     }
-		// },
-
 		csslint: { // http://astainforth.com/blogs/grunt-part-2
 			files: ['css/*.css', '!css/bootstrap.min.css',],
 			options: {
 				csslintrc: '.csslintrc'
+			}
+		},
+
+		postcss: { // https://github.com/nDmitry/grunt-postcss
+			options: {
+				processors: [
+					// require('pixrem')(), // add fallbacks for rem units
+					require('autoprefixer')({browsers: 'last 5 versions'}), // add vendor prefixes
+					//     require('cssnano')() // minify the result
+				]
+			},
+			dist: {
+				src: 'css/*.css'
 			}
 		},
 
@@ -211,16 +140,9 @@ module.exports = function(grunt) {
 		 * $ grunt copy
 		 */
 		copy: { // https://github.com/gruntjs/grunt-contrib-copy
-			bootstrapfonts: {
-				expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
-				cwd: bootstrap_fonts_path,
-				src: ['**'],
-				dest: 'fonts/',
-				filter: 'isFile',
-			},
 			jquery: {
 				expand: true, // https://github.com/gruntjs/grunt-contrib-copy/issues/90
-				cwd: bower_path + 'jquery/dist/',
+				cwd: BOWER_PATH + 'jquery/dist/',
 				src: ['jquery.min.js'],
 				dest: 'js/',
 				filter: 'isFile',
@@ -269,11 +191,11 @@ module.exports = function(grunt) {
 		watch: { // https://github.com/gruntjs/grunt-contrib-watch
 			compass: {
 				files: ['sass/*.{scss,sass}'],
-				tasks: ['testcompassbuild'],
+				tasks: ['css'],
 			},
 			js: {
 				files: ['src/js/*.js'],
-				tasks: ['testjsbuild'],
+				tasks: ['js'],
 			},
 			options: {
 				livereload: true,
@@ -282,29 +204,16 @@ module.exports = function(grunt) {
 
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-csslint');
-	grunt.loadNpmTasks('grunt-contrib-compass');
-	grunt.loadNpmTasks('grunt-contrib-less');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-exec');
-
-	grunt.registerTask( 'testcssbuild', ['compass', 'csslint'] );
-	grunt.registerTask( 'testcompassbuild', ['compass','cssmin', 'csslint'] );
-	grunt.registerTask( 'testjsbuild', ['jshint', 'uglify'] );
-
-	grunt.registerTask('test', ['jshint', 'csslint']);
+	grunt.registerTask( 'css', ['compass', 'postcss'] );
+	grunt.registerTask( 'js', ['uglify'] );
+	grunt.registerTask( 'test', ['jshint', 'csslint'] );
 
     grunt.registerTask( 'build', [
-        'exec:bower',
-        'copy:bootstrapfonts',
-        'copy:jquery',
-        'compass',
-        'uglify'
+        // 'exec:bower',
+        // 'copy:bootstrapfonts',
+        // 'copy:jquery',
+		'css',
+		'js'
         ]
     );
 

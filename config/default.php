@@ -11,5 +11,5 @@
 namespace ItalyStrap\Config;
 
 return [
-
+//	'colophon'	=> 'New value for colophon',
 ];

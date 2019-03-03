@@ -31,3 +31,12 @@ add_filter( 'italystrap_theme_updater', function ( array $edd_config ) {
 
 	return $edd_config;
 } );
+
+add_filter( 'italystrap_config_enqueue_style', function ( array $styles ) {
+	$styles[] = [
+		'handle'	=> 'font-awesome',
+		'file'		=> 'https://use.fontawesome.com/releases/v5.7.2/css/all.css',
+		'version'	=> '5.7.2',
+	];
+	return $styles;
+} );

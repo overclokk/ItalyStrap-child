@@ -1,5 +1,5 @@
 {
-  "name": "ItalyStrap",
+  "name": "italystrap",
   "version": "2.0.1",
   "homepage": "https://github.com/overclokk/ItalyStrap",
   "authors": [
@@ -25,11 +25,11 @@
     "tests"
   ],
   "devDependencies": {
-    "bootstrap-sass": "latest",
+    "bootstrap": "latest",
     "font-awesome": "latest",
     "jquery": "latest",
-    "susy": "~2.2.12",
-    "breakpoint-sass": "~2.7.0",
-    "bourbon": "~4.2.7"
+    "susy": "latest",
+    "breakpoint-sass": "latest",
+    "bourbon": "latest"
   }
 }

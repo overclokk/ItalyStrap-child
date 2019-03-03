@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) or ! ABSPATH ) {
  *
  * ==========================================================
  */
-require_once get_template_directory() . '/lib/bootstrap.php';
+require_once get_template_directory() . '/src/bootstrap.php';
 
 /**
  * ==========================================================

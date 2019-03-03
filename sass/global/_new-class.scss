@@ -5,16 +5,16 @@
 // 	}
 // }
 
-.boxed {
-	margin-left: auto;
-	margin-right: auto;
-	@include breakpoint( $screen-sm-min ) {
-		width: $container-sm;
-	}
-	@include breakpoint( $screen-md-min ) {
-		width: $container-md;
-	}
-	@include breakpoint( $screen-lg-min ) {
-		width: $container-lg;
-	}
-}
+//.boxed {
+//	margin-left: auto;
+//	margin-right: auto;
+//	@include breakpoint( $screen-sm-min ) {
+//		width: $container-sm;
+//	}
+//	@include breakpoint( $screen-md-min ) {
+//		width: $container-md;
+//	}
+//	@include breakpoint( $screen-lg-min ) {
+//		width: $container-lg;
+//	}
+//}

@@ -1,8 +1,3 @@
-///
-/// Firts custom settings
-/// @url http://compass-style.org/reference/compass/css3/box_shadow/
-/// @url http://compass-style.org/examples/compass/css3/gradient/
-///
 @import "compass";
 @import "variable";
 
@@ -49,33 +44,35 @@
 @import "scss/print";
 
 //// Utility classes
-//@import "scss/utilities";
 //@import "scss/utilities/align";
 //@import "scss/utilities/background";
 //@import "scss/utilities/borders";
 //@import "scss/utilities/clearfix";
 //@import "scss/utilities/display";
-//@import "scss/utilities/embed";
 //@import "scss/utilities/flex";
 //@import "scss/utilities/float";
-//@import "scss/utilities/overflow";
 //@import "scss/utilities/position";
 //@import "scss/utilities/screenreaders";
-//@import "scss/utilities/shadows";
 //@import "scss/utilities/sizing";
-//@import "scss/utilities/stretched-link";
 //@import "scss/utilities/spacing";
 //@import "scss/utilities/text";
+//@import "scss/utilities";
 //@import "scss/utilities/visibility";
 
 ///
 /// Da qui comincia lo stile custom
 /// 
-//@import "mixins";
-@import "global";
-@import "header";
-@import "content";
-@import "meta";
-@import "comment";
-@import "sidebar";
-@import "footer";
+/**
+ * Css for admin panel
+ */
+// body.wp-autoresize{
+// 	padding: 15px !important;
+// }
+// .wpview-wrap{
+// 	background-color: #eaeaea;
+// 	padding: 0 10px;
+// 	.toolbar div{
+// 		margin: 3px;
+// 		padding: 0;
+// 	}
+// }
