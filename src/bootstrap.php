@@ -28,6 +28,7 @@ foreach ( $autoload_child_files as $file ) {
 add_filter( 'italystrap_theme_updater', function ( array $edd_config ) {
 
 	$edd_config[] = require CHILDPATH . '/config/edd.php';
+//	$edd_config[] = \ItalyStrap\Config\get_config_file_content('edd');
 
 	return $edd_config;
 } );

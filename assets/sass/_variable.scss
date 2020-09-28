@@ -1,0 +1,29 @@
+//@import "../bower_components/susy/sass/susy";
+//@import "../bower_components/sassy-maps/sass/memo";
+//@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
+
+//$susy: (
+//  columns: 12,
+//  gutters: .25,
+//  gutter-position: inside,
+//);
+
+//
+// Variables
+// --------------------------------------------------
+
+// L:69
+$primary: #0a4266;
+
+$icon-font-path: '../fonts/';
+
+$font-size-base: 1.05rem;
+
+// Tutte le aggiunte ulteriori a bootstrap
+//$general_margin: $font-size-base * 2; // 36px
+
+// L: 237
+$spacer: 1rem !default;
+
+//L: 862
+$navbar-padding-y: $spacer;

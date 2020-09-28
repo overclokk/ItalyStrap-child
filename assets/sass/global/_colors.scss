@@ -1,0 +1,10 @@
+@each $color, $value in $theme-colors {
+  .has-#{$color}-color {
+    color: var(--bs-#{$color});
+  };
+  .has-#{$color}-background-color {
+    background-color: var(--bs-#{$color});
+  }
+}
+
+//has-{extra-small}-font-size
